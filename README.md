@@ -79,10 +79,3 @@ Below is an example of the program running and solving the maze. The path is hig
 
 - **Curses errors on Windows:** Ensure you have installed the `windows-curses` package if you're running this on a Windows system.
 
-## Contributing
-
-If you wish to contribute to this project, feel free to fork the repository and submit a pull request.
-
-## License
-
-This project is open-source and available under the MIT License.
