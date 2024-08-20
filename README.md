@@ -72,10 +72,8 @@ BFS explores the maze level by level, ensuring the shortest path is found. It us
 ## Example Output
 
 Below is an example of the program running and solving the maze. The path is highlighted as the algorithm progresses.
+![Schermafbeelding 2024-08-20 190531](https://github.com/user-attachments/assets/59507738-cab3-4833-8771-dafec78c868f)
 
-![Maze Solver Running](assets/maze_solver_running.png)
-
-*Place your screenshot of the program running in the `assets` directory with the filename `maze_solver_running.png`. Make sure to create the `assets` directory if it doesn't exist.*
 
 ## Troubleshooting
 
