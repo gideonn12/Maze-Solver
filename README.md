@@ -1,92 +1,90 @@
-Maze Solver Using DFS and BFS
-This project implements a maze solver using Depth First Search (DFS) and Breadth First Search (BFS) algorithms. The maze is represented by a grid, where # represents walls, O is the starting point, and X is the end goal. The pathfinding algorithms will attempt to find the shortest path from O to X, and the result is displayed using the curses library for terminal-based visualization.
+# Maze Solver Project
 
-Maze Representation
-The maze is represented as a list of lists, with each element being one of the following:
+## Description
 
-# : Wall
-: Free path
-O : Start position
-X : End position
-Example:
+This project is a simple maze-solving algorithm implemented in Python. The program uses the `curses` library to create a visual representation of a maze and solve it using the Depth-First Search (DFS) algorithm. A BFS implementation is also available. The maze is represented as a 2D grid, where `"#"` represents walls, `" "` represents open paths, `"O"` is the start point, and `"X"` is the endpoint.
 
-python
-Code kopiëren
-maze = [
-    ["#", "O", "#", "#", "#", "#", "#", "#", "#"],
-    ["#", " ", " ", " ", " ", " ", " ", " ", "#"],
-    ["#", " ", "#", "#", " ", "#", "#", " ", "#"],
-    ["#", " ", "#", " ", " ", " ", "#", " ", "#"],
-    ["#", " ", "#", " ", "#", " ", "#", " ", "#"],
-    ["#", " ", "#", " ", "#", " ", "#", " ", "#"],
-    ["#", " ", "#", " ", "#", " ", "#", "#", "#"],
-    ["#", " ", " ", " ", " ", " ", " ", " ", "#"],
-    ["#", "#", "#", "#", " ", " ", "#", " ", "#"],
-    ["#", "#", "#", "#", "#", "X", "#", "#", "#"]
-]
-Installation
-Prerequisites
-Python 3.7 or higher is required.
-The curses library is used to visualize the pathfinding algorithms. However, the native curses library is not supported on Windows, so you will need to install windows-curses on Windows.
-Steps
-Clone the repository:
+The program highlights the path from the start to the endpoint as it explores the maze.
 
-bash
-Code kopiëren
-git clone https://github.com/yourusername/maze-solver.git
-cd maze-solver
-Install dependencies:
+## Getting Started
 
-On Linux/macOS:
+### Prerequisites
 
-No additional dependencies are required for curses.
+- Python 3.x
+- The `curses` module (for Unix-like systems) or the `windows-curses` package (for Windows).
 
-On Windows:
+### Installing Dependencies
 
-You will need to install windows-curses:
+For Unix-like systems (Linux, macOS):
 
-bash
-Code kopiëren
-pip install windows-curses
-Usage
-The project provides two different scripts: one for DFS and one for BFS. Both scripts are designed to find a path in the maze from the start position O to the end position X and visualize the process in the terminal using curses.
+No additional installation is necessary as the `curses` module is included with Python on these systems.
 
-Running the DFS Solver
-To run the DFS (Depth First Search) solver, use the following command:
+For Windows:
 
-bash
-Code kopiëren
-python3 dfs_maze_solver.py
-Running the BFS Solver
-To run the BFS (Breadth First Search) solver, use the following command:
+1. Install the `windows-curses` package using pip:
+    ```bash
+    pip install windows-curses
+    ```
 
-bash
-Code kopiëren
-python3 bfs_maze_solver.py
-Controls
-The script will automatically run and visualize the search algorithm.
-The terminal will display the maze, where the current path being explored is shown in red (or another color, depending on your terminal color scheme).
-Once the algorithm finds the path from O to X, the path will be highlighted.
-Press any key to exit the visualization.
-Code Overview
-main(stdscr)
-This function is the entry point for the curses environment. It sets up color pairs and calls the find_path function, which implements the DFS/BFS logic.
+### Running the Program
 
-find_path(maze, stdscr)
-This function executes the search algorithm (DFS/BFS), prints the current maze state to the terminal, and highlights the path found.
+1. Clone this repository to your local machine.
+2. Ensure you have all the dependencies installed.
+3. Run the program:
 
-print_maze(maze, stdscr, path=[])
-Prints the maze to the terminal, using different colors to highlight the current path.
+    For the DFS algorithm:
+    ```bash
+    python3 dfs.py
+    ```
 
-find_start(maze, start)
-Locates the starting position O in the maze.
+    For the BFS algorithm:
+    ```bash
+    python3 bfs.py
+    ```
 
-find_neighbors(maze, row, col)
-Returns a list of valid neighboring cells (up, down, left, right) that can be visited from the current cell.
+### Controls
 
-Example
-Here is what you will see when the program runs:
+- The program runs automatically upon execution and will display the maze along with the path it is exploring.
+- Press any key to exit once the path is found and displayed.
 
-The maze will be printed in the terminal.
-The algorithm will explore the maze, updating the visualization with the current path.
-The path to the goal will be highlighted in red once found.
+## Project Structure
+
+- `maze`: The maze is represented as a 2D list where each character represents a different element in the maze.
+- `print_maze`: A function that prints the maze to the terminal using the `curses` library, with the current path highlighted.
+- `find_start`: A helper function that locates the starting position ("O") in the maze.
+- `find_path`: The main algorithm function that uses DFS (or BFS) to find a path from start to end.
+- `find_neighbors`: A helper function that finds all possible moves from a given position.
+- `main`: The entry point of the program that initializes `curses` and starts the maze-solving process.
+
+## Algorithms Used
+
+### Depth-First Search (DFS)
+
+DFS explores a path by going as deep as possible before backtracking. It uses a stack (LifoQueue) to keep track of the current path. The algorithm follows these steps:
+1. Start at the "O" position.
+2. Explore as far as possible along each branch before backtracking.
+3. If the end "X" is found, the path is returned.
+
+### Breadth-First Search (BFS)
+
+BFS explores the maze level by level, ensuring the shortest path is found. It uses a queue to explore all possible positions from the current location before moving on to the next level.
+
+## Example Output
+
+Below is an example of the program running and solving the maze. The path is highlighted as the algorithm progresses.
+
+![Maze Solver Running](assets/maze_solver_running.png)
+
+*Place your screenshot of the program running in the `assets` directory with the filename `maze_solver_running.png`. Make sure to create the `assets` directory if it doesn't exist.*
+
+## Troubleshooting
+
+- **Curses errors on Windows:** Ensure you have installed the `windows-curses` package if you're running this on a Windows system.
+
+## Contributing
+
+If you wish to contribute to this project, feel free to fork the repository and submit a pull request.
+
+## License
+
+This project is open-source and available under the MIT License.
